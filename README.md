@@ -4,31 +4,43 @@ ChemStore is a chemical stock and inventory database, designed as a Java EE (RES
 
 ## Current plans
 
-Listed below are some of the planned features:
+Planned features:
 
-The key records stored permanently:
+All JPA entities are extensions of AbstractEntity. The key entities stored permanently are:
 
 + Supplier
     + Company name
     + Contact email
     + Contact phone number
-+ Chemical reagent register (save permanently for future recall)
++ Reagent
     + CAS ID
     + Name
-    + Unit (enum)
-    + Supplier
-+ Apparatus register (save permanently for future recall)
++ Apparatus
     + Name
     + Capacity
-    + Supplier
+  
+The stock items are then related to the supplier via one-to-one relational mappings:
 
-The records pertaining to current stock
++ StockChemical
+    + Reagent
+    + Supplier (one-to-one)
+    + Unit (enum)
+    + Expiry Date
+    + Density
+    + Concentration
++ StockApparatus
+    + Apparatus
+    + Supplier (one-to-one)
 
-+ Chemical stock (enter CAS and autofill if on file)
-    - CAS ID (name is automatically filled if on file)
-    - Name
-    - Unit of measure
+With the above records put in place, the end-user will eventually be expected to keep a record of current stock:
+
++ Chemical stock
+    - StockChemical (one-to-one)
     - Quantity
++ Apparatus stock
+    - StockApparatus (one-to-one)
+    - Quantity
+
 + School technician reagent quantities and dilutions calculator
     - Molar/formula mass
     - Stock concentration

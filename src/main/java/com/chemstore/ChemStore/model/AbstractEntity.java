@@ -19,6 +19,8 @@ public abstract class AbstractEntity implements Serializable {
     @Version
     protected Long version;
 
+    protected String serialNumber;
+
     protected LocalDateTime createdOn;
 
     protected LocalDateTime updatedOn;
