@@ -26,6 +26,10 @@ public class StockChemical extends AbstractEntity {
     @NotNull
     private Supplier supplier;
 
+    private String mass;
+
+    private String volume;
+
     private String concentration;
 
     private String density;
@@ -37,11 +41,18 @@ public class StockChemical extends AbstractEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StockChemical that = (StockChemical) o;
-        return reagent.equals(that.reagent) && measure == that.measure && supplier.equals(that.supplier) && Objects.equals(concentration, that.concentration) && Objects.equals(density, that.density) && Objects.equals(expiryDate, that.expiryDate);
+        return reagent.equals(that.reagent) &&
+                measure == that.measure &&
+                supplier.equals(that.supplier) &&
+                Objects.equals(mass, that.mass) &&
+                Objects.equals(volume, that.volume) &&
+                Objects.equals(concentration, that.concentration) &&
+                Objects.equals(density, that.density) &&
+                Objects.equals(expiryDate, that.expiryDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reagent, measure, supplier, concentration, density, expiryDate);
+        return Objects.hash(reagent, measure, supplier, mass, volume, concentration, density, expiryDate);
     }
 }

@@ -2,9 +2,7 @@
 
 ChemStore is a chemical stock and inventory database, designed as a Java EE (REST) Web service. To access use `localhost:8080/api/` or from a browser `http://localhost:8080/api/chemstore`.
 
-## Current plans
-
-Planned features:
+## JPA Entities
 
 All JPA entities are extensions of AbstractEntity. The key entities stored permanently are:
 
@@ -41,20 +39,13 @@ With the above records put in place, the end-user will eventually be expected to
     - StockApparatus (one-to-one)
     - Quantity
 
-+ School technician reagent quantities and dilutions calculator
-    - Molar/formula mass
-    - Stock concentration
-    - Volume per student
-    - Number of students + surplus
-    - OUTPUT: volume/mass required
-
-The shopping lists can be mapped to the current stock (transfer to package receive, make changes as appropriate and then
-click save)
+The shopping lists can be mapped to the current stock (when transferring the order to "package received", the service 
+will either update current inventories or build new entities)
 
 + Reagent shopping list
     - Supplier
     - CAS ID
-    - Stock mass/volume
+    - Unit mass/volume
     - Quantity required
     - Price per unit
     - Currency (enum)
@@ -79,3 +70,12 @@ future use:
         + Apparatus name
 
     + Quantity per student
+
+The school/college technician can also make use of a reagent quantities calculator:
+
++ School technician reagent quantities and dilutions calculator
+  - Molar/formula mass
+  - Stock concentration
+  - Volume per student
+  - Number of students + surplus
+  - OUTPUT: volume/mass required
