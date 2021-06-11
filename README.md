@@ -20,6 +20,7 @@ The key records stored permanently:
 + Apparatus register (save permanently for future recall)
     + Name
     + Capacity
+    + Supplier
 
 The records pertaining to current stock
 
