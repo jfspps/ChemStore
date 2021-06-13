@@ -2,7 +2,7 @@
 
 ChemStore is a chemical stock and inventory database, designed as a Java EE (REST) Web service. To access use `localhost:8080/api/` or from a browser `http://localhost:8080/api/chemstore`.
 
-## JPA Entities
+## JPA entities for chemicals and apparatus
 
 All JPA entities are extensions of AbstractEntity. The key entities stored permanently are:
 
@@ -20,16 +20,16 @@ All JPA entities are extensions of AbstractEntity. The key entities stored perma
 The stock items are then related to the supplier via one-to-one relational mappings:
 
 + StockChemical
-    + Reagent
+    + Reagent (one-to-one)
     + Supplier (one-to-one)
     + Unit (enum)
     + Expiry Date
     + Density
     + Concentration
 + StockApparatus
-    + Apparatus
+    + Apparatus (one-to-one)
     + Supplier (one-to-one)
-
+  
 With the above records put in place, the end-user will eventually be expected to keep a record of current stock:
 
 + Chemical stock
@@ -39,21 +39,34 @@ With the above records put in place, the end-user will eventually be expected to
     - StockApparatus (one-to-one)
     - Quantity
 
-The shopping lists can be mapped to the current stock (when transferring the order to "package received", the service 
-will either update current inventories or build new entities)
+The (purchase) Order is composed of Lists of ApparatusOrdered and ChemicalOrdered:
 
-+ Reagent shopping list
-    - Supplier
-    - CAS ID
-    - Unit mass/volume
-    - Quantity required
-    - Price per unit
-    - Currency (enum)
-    - OUTPUT: total cost
-+ Apparatus shopping list
-    - Supplier
-    - Name
-    - Capacity
++ ApparatusOrdered
+  - Order (many-to-many)
+  - StockApparatus (one-to-one)
+  - Quantity ordered
+  - Price
+  - Currency (enum)
+
++ ChemicalOrdered
+  - Order (many-to-many)
+  - StockChemical (one-to-one)
+  - Quantity ordered
+  - Price
+  - Currency (enum)
+
+Hence, ApparatusOrdered and ChemicalOrdered are individual rows of Order:
+
++ Order
+  - Order date and time
+  - (List of) ApparatusOrdered (many-to-many)
+  - (List of) ChemicalOrdered (many-to-many)
+  
+The mappings are many-to-many since it is likely that the same quantity of apparatus and/or reagents will be requested again.
+
+# Future capabilities of ChemStore
+
+## Teacher submitted lab requirements
 
 The teacher can submit a request sheet for a class, for classes taking the same experiment, saving the instructions for
 future use:
@@ -63,13 +76,14 @@ future use:
     - Date/week of experiment(s)
     - Number of students
     - Number of surplus quantities
-    - Chemicals required (name and quantity per student)
+    - Chemicals required
         + Chemical name
         + Quantity per student
-    - Apparatus required (name and optionally capacity)
+    - Apparatus required
         + Apparatus name
+        + Capacity
 
-    + Quantity per student
+## Reagent quantities calculator
 
 The school/college technician can also make use of a reagent quantities calculator:
 
