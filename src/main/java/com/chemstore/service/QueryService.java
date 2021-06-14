@@ -1,6 +1,6 @@
-package com.chemstore.ChemStore.service;
+package com.chemstore.service;
 
-import com.chemstore.ChemStore.model.materials.Reagent;
+import com.chemstore.model.materials.Reagent;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

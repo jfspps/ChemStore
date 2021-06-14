@@ -1,4 +1,4 @@
-package com.chemstore.ChemStore.config;
+package com.chemstore.config;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

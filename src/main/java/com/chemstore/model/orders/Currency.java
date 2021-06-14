@@ -1,4 +1,4 @@
-package com.chemstore.ChemStore.model.orders;
+package com.chemstore.model.orders;
 
 public enum Currency {
     GBP,

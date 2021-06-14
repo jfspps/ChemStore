@@ -1,13 +1,12 @@
-package com.chemstore.ChemStore.resource;
+package com.chemstore.resource;
 
-import com.chemstore.ChemStore.model.materials.Reagent;
-import com.chemstore.ChemStore.service.QueryService;
+import com.chemstore.model.materials.Reagent;
+import com.chemstore.service.QueryService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Collection;
 

@@ -1,6 +1,6 @@
-package com.chemstore.ChemStore.model.orders;
+package com.chemstore.model.orders;
 
-import com.chemstore.ChemStore.model.AbstractEntity;
+import com.chemstore.model.AbstractEntity;
 import lombok.Data;
 
 import javax.persistence.*;

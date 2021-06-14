@@ -1,7 +1,7 @@
-package com.chemstore.ChemStore.model.store;
+package com.chemstore.model.store;
 
-import com.chemstore.ChemStore.model.AbstractEntity;
-import com.chemstore.ChemStore.model.materials.StockApparatus;
+import com.chemstore.model.AbstractEntity;
+import com.chemstore.model.materials.StockApparatus;
 import lombok.Data;
 
 import javax.persistence.Entity;

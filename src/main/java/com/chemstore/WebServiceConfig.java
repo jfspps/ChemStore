@@ -1,4 +1,4 @@
-package com.chemstore.ChemStore;
+package com.chemstore;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

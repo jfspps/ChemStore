@@ -1,4 +1,4 @@
-package com.chemstore.ChemStore.model;
+package com.chemstore.model;
 
 import lombok.Getter;
 import lombok.Setter;

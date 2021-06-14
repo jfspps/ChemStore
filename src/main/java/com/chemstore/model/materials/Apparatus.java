@@ -1,6 +1,6 @@
-package com.chemstore.ChemStore.model.materials;
+package com.chemstore.model.materials;
 
-import com.chemstore.ChemStore.model.AbstractEntity;
+import com.chemstore.model.AbstractEntity;
 import lombok.Data;
 
 import javax.persistence.Embeddable;
