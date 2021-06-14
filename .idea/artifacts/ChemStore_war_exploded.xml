@@ -15,6 +15,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.h2database:h2:1.4.200" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:eclipselink:3.0.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

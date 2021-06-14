@@ -14,14 +14,14 @@ public abstract class AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+    private Long id;
 
     @Version
-    protected Long version;
+    private Long version;
 
-    protected String serialNumber;
+    private String serialNumber;
 
-    protected LocalDateTime createdOn;
+    private LocalDateTime createdOn;
 
-    protected LocalDateTime updatedOn;
+    private LocalDateTime updatedOn;
 }

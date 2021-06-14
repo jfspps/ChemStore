@@ -4,38 +4,40 @@ import com.chemstore.ChemStore.model.AbstractEntity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
+// table name ORDER conflicts with H2 reserved word
 @Entity
 @Data
+@Table(name = "ChemStoreOrders")
 public class Order extends AbstractEntity {
 
     @NotBlank(message = "Enter a unique order number or identifier")
     private String orderNumber;
 
-    @PastOrPresent(message = "Order cannot be placed in the future")
+    @FutureOrPresent(message = "Order cannot be placed in the past")
     @NotNull
     private LocalDateTime orderDateAndTime;
 
     @ManyToMany
     @JoinTable(
-            name = "Orders_Apparatus",
-            joinColumns = @JoinColumn(name = "orderID"),
-            inverseJoinColumns = @JoinColumn(name = "apparatusID"))
-    private List<ApparatusOrdered> apparatusOrderedList = new ArrayList<>();
+            name = "ORD_APP",
+            joinColumns = @JoinColumn(name = "ORD_ID"),
+            inverseJoinColumns = @JoinColumn(name = "APP_ID"))
+    private Set<ApparatusOrdered> apparatusOrderedList = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
-            name = "Orders_Chemical",
-            joinColumns = @JoinColumn(name = "orderID"),
-            inverseJoinColumns = @JoinColumn(name = "chemicalID"))
-    private List<ChemicalOrdered> chemicalOrderedList = new ArrayList<>();
+            name = "ORD_CHEM",
+            joinColumns = @JoinColumn(name = "ORD_ID"),
+            inverseJoinColumns = @JoinColumn(name = "CHEM_ID"))
+    private Set<ChemicalOrdered> chemicalOrderedList = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {
