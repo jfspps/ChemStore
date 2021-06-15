@@ -6,6 +6,10 @@ ChemStore is a chemical stock and inventory database, designed as a Java EE (RES
 
 ## JPA entities for chemicals and apparatus
 
+The Entity relationship diagram is as follows:
+
+![](ChemStoreERD.png)
+
 All JPA entities are extensions of AbstractEntity. The key entities stored permanently are:
 
 + Supplier
