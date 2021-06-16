@@ -1,7 +1,7 @@
 # ChemStore
 
 ChemStore is a chemical stock and inventory database, designed as a Java EE (REST) Web service. To access use
-`localhost:5000/api/v1` or from a browser `http://localhost:5000/api/v1`. Note that the port number can be changed (see
+`localhost:8080/api/v1` or from a browser `http://localhost:8080/api/v1`. Note that the port number can be changed (see
 [Payara Application Server](#payara-application-server))
 
 ## JPA entities for chemicals and apparatus
@@ -81,7 +81,7 @@ execute `mvn clean package` from the project parent directory. To run the app, e
 
 ChemStore uses the EclipseLink ORM with the H2 in-memory database. The database is initially void of entities. 
 
-To post new reagents (for example), send POST request to "localhost:5000/api/v1/reagents" with a (raw) JSON in the request body:
+To post new reagents (for example), send POST request to "localhost:8080/api/v1/reagents" with a (raw) JSON in the request body:
 
 ```json
 {

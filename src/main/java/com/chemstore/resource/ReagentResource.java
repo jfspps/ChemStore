@@ -35,7 +35,7 @@ public class ReagentResource {
 
     @GET()
     @Path("reagents/{id}")
-    public Response getReagentById(@PathParam("id") @DefaultValue("0") Long ID) {
+    public Response getReagentById(@PathParam("id") Long ID) {
         Reagent found = reagentQueryService.getReagentById(ID);
 
         if (found == null){
@@ -43,13 +43,6 @@ public class ReagentResource {
         }
 
         return Response.ok(found).status(Response.Status.OK).build();
-    }
-
-    // api/v1/reagent?id=1
-    @GET()
-    @Path("reagent")
-    public Response getReagentByIdQuery(@QueryParam("id") @DefaultValue("0") Long ID) {
-        return Response.ok(reagentQueryService.getReagentById(ID)).status(Response.Status.OK).build();
     }
 
     @POST()
@@ -77,5 +70,19 @@ public class ReagentResource {
 
         URI uri = uriInfo.getAbsolutePathBuilder().path(found.getId().toString()).build();
         return Response.created(uri).status(Response.Status.CREATED).build();
+    }
+
+    // can't send a body with a DELETE request
+    @DELETE()
+    @Path("reagents/{id}")
+    public Response deleteReagent(@PathParam("id") Long ID) {
+        Reagent found = reagentQueryService.getReagentById(ID);
+
+        if (found == null){
+            throw new NotFoundException();
+        }
+
+        reagentPersistenceService.deleteReagent(ID);
+        return Response.ok("Delete confirmed").build();
     }
 }

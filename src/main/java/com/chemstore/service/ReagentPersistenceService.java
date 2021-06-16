@@ -29,4 +29,9 @@ public class ReagentPersistenceService {
     public void updateReagent(Reagent reagent){
         entityManager.merge(reagent);
     }
+
+    public void deleteReagent(Long ID){
+        Reagent onFile = entityManager.find(Reagent.class, ID);
+        entityManager.remove(onFile);
+    }
 }
