@@ -3,7 +3,6 @@ package com.chemstore.model.materials;
 import com.chemstore.model.AbstractEntity;
 import lombok.Data;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

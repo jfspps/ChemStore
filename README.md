@@ -1,7 +1,7 @@
 # ChemStore
 
 ChemStore is a chemical stock and inventory database, designed as a Java EE (REST) Web service. To access use
-`localhost:8080/api/v1` or from a browser `http://localhost:8080/api/v1`. Note that the port number can be changed (see
+`localhost:5000/api/v1` or from a browser `http://localhost:5000/api/v1`. Note that the port number can be changed (see
 [Payara Application Server](#payara-application-server))
 
 ## JPA entities for chemicals and apparatus

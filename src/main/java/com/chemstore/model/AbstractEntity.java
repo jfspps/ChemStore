@@ -24,4 +24,14 @@ public abstract class AbstractEntity implements Serializable {
     private LocalDateTime createdOn;
 
     private LocalDateTime updatedOn;
+
+    @PrePersist
+    public void setCreate_Date(){
+        this.setCreatedOn(LocalDateTime.now());
+    }
+
+    @PreUpdate
+    public void doSomethingBeforeUpdating(){
+        this.setUpdatedOn(LocalDateTime.now());
+    }
 }
