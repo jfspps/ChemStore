@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import java.util.Collection;
 
 @Stateless
-public class QueryService {
+public class ReagentQueryService {
 
     @Inject
     EntityManager entityManager;

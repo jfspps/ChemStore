@@ -10,7 +10,6 @@ import java.util.Objects;
 
 @Entity
 @Data
-@Embeddable
 public class Reagent extends AbstractEntity {
 
     @NotBlank(message = "Cannot use a blank CAS ID")

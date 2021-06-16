@@ -10,7 +10,6 @@ import java.util.Objects;
 
 @Entity
 @Data
-@Embeddable
 public class Apparatus extends AbstractEntity {
 
     @NotBlank(message = "Description is required")

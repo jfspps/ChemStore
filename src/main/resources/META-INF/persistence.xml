@@ -3,21 +3,33 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-    <persistence-unit name="chemstore" transaction-type="JTA">
+    <persistence-unit name="ChemStoreUnit" transaction-type="JTA">
         <!-- The default (ORM) provider for Payara is EclipseLink -->
 
-        <!-- Without jta-data-source, the in-memory database is used -->
+        <!-- Without jta-data-source, the in-memory database is used (this is also set again here)-->
+        <jta-data-source>java:app/ChemStore/DB</jta-data-source>
 
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
         <properties>
             <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chemstore" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="" />
 
             <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+
+            <!-- Saved in the same working directory as the app -->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
             <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_chemStore.jdbc"/>
             <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_chemStore.jdbc"/>
-            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+
+            <!-- configure logging -->
+            <property name="eclipselink.logging.level" value="INFO"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>

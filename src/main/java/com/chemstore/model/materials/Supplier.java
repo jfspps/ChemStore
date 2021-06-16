@@ -11,7 +11,6 @@ import java.util.Objects;
 
 @Entity
 @Data
-@Embeddable
 public class Supplier extends AbstractEntity {
 
     @NotBlank(message = "Cannot use a blank company name")
