@@ -12,17 +12,20 @@
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
+            <!-- For more on settings, go to https://www.eclipse.org/eclipselink/documentation/3.0/concepts/app_dev001.htm -->
             <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:chemstore" />
-            <property name="javax.persistence.jdbc.user" value="sa" />
-            <property name="javax.persistence.jdbc.password" value="" />
-
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
-
-            <!-- Saved in the same working directory as the app -->
+            <property name="javax.persistence.jdbc.user" value="username1" />
+            <property name="javax.persistence.jdbc.password" value="somePass" />
+            <!-- Delete existing database artifacts and build new ones on deployment -->
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+
+            <!-- specify how EclipseLink generates DDL (Data Definition Language) for the database schema (tables and constraints) on deployment -->
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <!-- Generate DDL to database and file -->
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+            <!-- Set the DDL filenames of dropped and created tables -->
             <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_chemStore.jdbc"/>
             <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_chemStore.jdbc"/>
 

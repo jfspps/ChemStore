@@ -14,8 +14,8 @@ import java.util.List;
         name = "java:app/ChemStore/DB",
         className = "org.h2.Driver",
         url = "jdbc:h2:mem:chemstore",
-        user = "sa",
-        password = "")
+        user = "username1",
+        password = "somePass")
 @Stateless
 public class ReagentPersistenceService {
 

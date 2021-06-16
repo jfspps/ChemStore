@@ -27,4 +27,8 @@ public class ReagentQueryService {
         return entityManager.createQuery("select r from Reagent r", Reagent.class)
                 .getResultList();
     }
+
+    public Reagent getReagentById(Long ID) {
+        return entityManager.find(Reagent.class, ID);
+    }
 }
