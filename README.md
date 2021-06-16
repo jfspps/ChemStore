@@ -79,7 +79,16 @@ execute `mvn clean package` from the project parent directory. To run the app, e
 
 # EclipseLink
 
-ChemStore uses the EclipseLink ORM with the H2 embedded database.
+ChemStore uses the EclipseLink ORM with the H2 in-memory database. The database is initially void of entities. 
+
+To post new reagents (for example), send POST request to "localhost:5000/api/v1/reagents" with a (raw) JSON in the request body:
+
+```json
+{
+    "CAS_id" : "Some CAS ID",
+    "chemicalName" : "Alcohol"
+}
+```
 
 # Future capabilities of ChemStore
 
